@@ -6,23 +6,21 @@ library(janitor)
 library(lubridate)
 library(opendatatoronto)
 library(tidyverse)
-set.seed(853)
 
-simulated_occupancy_data <-
-  tibble(
-    date = rep(x = as.Date("2021-01-01") + c(0:364), times = 3),
-    # Based on Eddelbuettel: https://stackoverflow.com/a/21502386
-    shelter = c(
-      rep(x = "Shelter 1", times = 365),
-      rep(x = "Shelter 2", times = 365),
-      rep(x = "Shelter 3", times = 365)
-    ),
-    number_occupied =
-      rpois(
-        n = 365 * 3,
-        lambda = 30
-      ) # Draw 1,095 times from the Poisson distribution
-  )
+set.seed(1)
 
-head(simulated_occupancy_data)
 
+original_data <- read.csv('toronto_gender.csv')
+
+gender_levels <- levels(factor(original_data$Gender_of_People_Involved))
+race_levels <- levels(factor(original_data$Perceived_Race_of_People_Involv))
+
+n <- nrow(original_data)
+
+set.seed(2) 
+simulated_data <- data.frame(
+  Gender_of_People_Involved = sample(gender_levels, n, replace = TRUE),
+  Perceived_Race_of_People_Involv = sample(race_levels, n, replace = TRUE),
+  Incident_Count = sample(0:max(original_data$Incident_Count, na.rm = TRUE), n, replace = TRUE)
+)
+head(simulated_data)
