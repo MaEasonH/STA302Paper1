@@ -5,15 +5,15 @@ library(opendatatoronto)
 library(tidyverse)
 
 
+library(dplyr)
 
-toronto_shelters_clean <-
-  clean_names(toronto_shelters) |>
-  mutate(occupancy_date = ymd(occupancy_date)) |> 
-  select(occupancy_date, occupied_beds)
 
-head(toronto_shelters_clean)
+data <- read.csv('toronto_gender.csv')
+data_selected <- select(data, Perceived_Race_of_People_Involv, Incident_Count)
+data_selected$Incident_Count[is.na(data_selected$Incident_Count)] <- 0
+data_reduced <- head(data_selected, 10)
 
-write_csv(
-  x = toronto_shelters_clean,
-  file = "cleaned_toronto_shelters.csv"
-)
+
+print(data_reduced)
+write.csv(data_reduced, 'clean_reduced.csv', row.names = FALSE)
+cat("The data_reduced has been saved to 'data_reduced.csv'")

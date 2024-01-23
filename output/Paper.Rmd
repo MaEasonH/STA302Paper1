@@ -1,27 +1,33 @@
 ---
-title: "Paper"
-author: "HengMa"
+title: "police race and identity based data use of force"
+subtitle: "A Look Into Excluding the impact of social status, whether race directly affect the occurrence of violent incidents?"
+author: 
+  - HengMa
+thanks: "Code and data are available at: https://github.com/MaEasonH/STA302Paper1.git"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+abstract: "As a city with a significant influx of population, Toronto has immigrants making up more than half of its population, and this is related to the city's persistently high crime rate. Many articles illustrate that ethnic diversity is one of the factors contributing to the high crime rate, but considering the complexity of society as a whole, it's difficult to definitively say that race leads to violence. This paper, by further collecting data from the Open Data Portal of the City of Toronto, aims to analyze the problem and trends by visualizing data related to the least violent profession, police, and its association with violence."
 format: pdf
-editor: visual
+number-sections: true
+bibliography: Reference.bib
 ---
 
-## Quarto
+```{r setup, fig.pos = "!H", include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+library(tidyverse)
+library(janitor)
+library(dplyr)
+library(tidyr)
+library(opendatatoronto)
+library(knitr)
+library(patchwork)
+library(lubridate)
 
-## Running Code
+clean_data <- read_csv(here::here("clean_reduced.csv"))
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
 ```
+# Introduction
 
-add my code here
 
-```{r}
-#| echo: false
-2 * 2
-```
+As the incidence of violence in Toronto increases, whether the police should use force to counteract violent incidents remains a key and complex issue in contemporary society. This discussion explores the often contentious relationship between law enforcement practices and race, as using violence to counteract violence often leads to a more negative societal narrative. Not long ago, a news story that garnered widespread attention involved a police officer who, in an excessively aggressive use of force, subdued a criminal under circumstances where there was no threat, leading to the individual's death by suffocation. The incident was quickly publicized and amplified, ultimately leading to more societal violence. With the growing visibility of social justice movements, public focus has shifted from the dichotomy of criminal and police roles to a greater concern for human rights themselves.
 
-The `echo: false` option disables the printing of code (only output is displayed).
