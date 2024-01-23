@@ -9,21 +9,14 @@ library(lubridate)
 library(opendatatoronto)
 library(tidyverse)
 
-
-toronto_shelters <-
-  # Each package is associated with a unique id  found in the "For 
-  # Developers" tab of the relevant page from Open Data Toronto
-  # https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/
-  list_package_resources("21c83b32-d5a8-4106-a54f-010dbe49f6f2") |>
-  # Within that package, we are interested in the 2021 dataset
+packagedata <- search_packages("race")
+toronto_gender <-
+  list_package_resources("police-race-and-identity-based-data-use-of-force") |>
   filter(name == 
-           "daily-shelter-overnight-service-occupancy-capacity-2021.csv") |>
-  # Having reduced the dataset to one row we can get the resource
+           "Gender Composition") |>
   get_resource()
-
 write_csv(
-  x = toronto_shelters,
-  file = "toronto_shelters.csv"
+  x = toronto_gender,
+  file = "toronto_gender.csv"
 )
-
-head(toronto_shelters)
+head(toronto_gender)
