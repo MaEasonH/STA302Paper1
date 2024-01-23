@@ -63,7 +63,7 @@ Finally, we export the processed dataset to a new CSV file for further use or an
 ```{r}
 set.seed(1)
 
-original_data <- read.csv('toronto_gender.csv')
+original_data <- read.csv('/cloud/project/toronto_gender.csv')
 
 gender_levels <- levels(factor(original_data$Gender_of_People_Involved))
 race_levels <- levels(factor(original_data$Perceived_Race_of_People_Involv))
@@ -85,28 +85,19 @@ The R script for simulating data based on the "toronto_gender.csv" file begins b
 ## Visual 
 
 ```{r}
+install.packages("ggplot2")
 library(ggplot2)
 
-
-ggplot(clean_reduced, aes(fill = Gender_of_People_Involved, y = Incident_Count, x = Perceived_Race_of_People_Involv)) +
+clean_reduced <- read.csv("/cloud/project/input/data/clean_reduced.csv")
+ggplot(clean_reduced, aes( y = Incident_Count, x = Perceived_Race_of_People_Involv)) +
   geom_bar(position = "dodge", stat = "identity") +
   theme_minimal() +
-  labs(title = "Incidents by Perceived Race and Gender", x = "Perceived Race", y = "Number of Incidents") +
+  labs(title = "Incidents by Perceived Race", x = "Perceived Race", y = "Number of Incidents") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 The provided R script is tailored to visualize the distribution of incidents in the clean_reduced data set, focusing on the interplay between gender and perceived race. Utilizing the ggplot2 library, a key tool in R for data visualization, the script creates a grouped bar plot. This plot distinguishes incidents by Gender_of_People_Involved and Perceived_Race_of_People_Involv, offering a clear visual representation of the data. The geom_bar function, with its position = "dodge" parameter, arranges the bars side by side, facilitating an easy comparison across categories. Enhanced for readability, the plot features a minimalistic theme, angled x-axis labels, and descriptive labels and title, making it an insightful tool for understanding the nuances of incident distribution across different genders and races within the dataset.
 
-# Limitations
-
-
-## Uneven Bin width for Age Groups.
-
-
-## What about the others?
-
-
-# Next Steps
 
 
 
