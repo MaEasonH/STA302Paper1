@@ -10,7 +10,7 @@ library(tidyverse)
 set.seed(1)
 
 
-original_data <- read.csv('toronto_gender.csv')
+original_data <- read.csv('/cloud/project/input/data/toronto_gender.csv')
 
 gender_levels <- levels(factor(original_data$Gender_of_People_Involved))
 race_levels <- levels(factor(original_data$Perceived_Race_of_People_Involv))

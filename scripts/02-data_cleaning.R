@@ -6,7 +6,7 @@ library(tidyverse)
 library(dplyr)
 library(readr)
 
-data <- read_csv("/cloud/project/toronto_gender.csv")
+data <- read_csv("/cloud/project/input/data/toronto_gender.csv")
 
 data_sorted <- data[order(-data$Incident_Count), ]
 top_10 <- head(data_sorted, 10)
