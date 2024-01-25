@@ -2,11 +2,14 @@ LLMs
 
 ChatGPT4 was used to organize and summary the paragraphs, and finding the references.
 
-1:Introduction: "the role of police has always been to maintain public order and safety, but the methods employed to achieve these goals have evolved and changed, sometimes sparking controversy.[@Johnson2023] The use of force by police, ranging from physical restraint to the deployment of weapons, is a topic that sits at the crossroads of law, ethics, and human rights."
+1:Introduction: "the role of police has always been to maintain public order and safety, but the methods employed to achieve these goals have evolved and changed, sometimes sparking controversy.[@Johnson2023] The use of force by police, ranging from physical restraint to the deployment of weapons, is a topic that sits at the crossroads of law, ethics, and human rights."[Introduction]
 --used ChatGpt4 to solve grammar mistake and organized.
 
-2: "These services are crucial for data collection, and they contribute significantly to the dataset by feeding various variables, thereby enabling a comprehensive and multi-dimensional analysis. This approach is instrumental in understanding the nuances of police use of force in relation to race and identity within the context of Toronto."
-----used ChatGpt4 to solve grammar mistake and organized.
+2: "These services are crucial for data collection, and they contribute significantly to the dataset by feeding various variables, thereby enabling a comprehensive and multi-dimensional analysis. This approach is instrumental in understanding the nuances of police use of force in relation to race and identity within the context of Toronto."[Data Collection]
+----used ChatGpt4 to solve grammar mistake and solve the mistakes.
+
+3:"The script extracts categorical levels for gender and race to maintain the original data's categorical integrity. Using the sample function, it then generates randomized data for these columns, ensuring categorical data aligns with original levels and numerical data falls within a realistic range."[ Population, Frame or Sample]
+--use ChatGpt4 to find the grammar mistake and solve those mistakes
 
 
 ChatGPT4 was used to solve the mistake for the R code.
@@ -18,3 +21,11 @@ ggplot(data, aes(x="", y=Incident_Count, fill=Perceived_Race_of_People_Involv)) 
   labs(fill="Race", title="Pie Chart of Incident Counts by Race")"
   
 --visual #1 use ChatGpt4 to find the mistake and fix the bug.
+
+2:"data_selected <- select(top_10, Perceived_Race_of_People_Involv, Incident_Count)
+data_selected$Incident_Count[is.na(data_selected$Incident_Count)] <- 0
+data_reduced <- head(data_selected, 10)
+data_grouped <- data %>%
+  group_by(Perceived_Race_of_People_Involv) %>%
+  summarise(Incident_Count = sum(Incident_Count, na.rm = TRUE))"[data clean]
+--use ChatGpt4 to find the mistake and fix the bug.
