@@ -1,0 +1,20 @@
+LLMs
+
+ChatGPT4 was used to organize and summary the paragraphs, and finding the references.
+
+1:Introduction: "the role of police has always been to maintain public order and safety, but the methods employed to achieve these goals have evolved and changed, sometimes sparking controversy.[@Johnson2023] The use of force by police, ranging from physical restraint to the deployment of weapons, is a topic that sits at the crossroads of law, ethics, and human rights."
+--used ChatGpt4 to solve grammar mistake and organized.
+
+2: "These services are crucial for data collection, and they contribute significantly to the dataset by feeding various variables, thereby enabling a comprehensive and multi-dimensional analysis. This approach is instrumental in understanding the nuances of police use of force in relation to race and identity within the context of Toronto."
+----used ChatGpt4 to solve grammar mistake and organized.
+
+
+ChatGPT4 was used to solve the mistake for the R code.
+1:"data <- read.csv("/cloud/project/input/data/clean_reduced.csv")
+ggplot(data, aes(x="", y=Incident_Count, fill=Perceived_Race_of_People_Involv)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y", start=0) +
+  theme_void() +
+  labs(fill="Race", title="Pie Chart of Incident Counts by Race")"
+  
+--visual #1 use ChatGpt4 to find the mistake and fix the bug.
